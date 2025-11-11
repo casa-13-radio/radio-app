@@ -45,7 +45,7 @@
         on:click={async () => {
         console.log('🧪 Testing API manually...');
         try {
-            const response = await fetch('http://167.126.24.4:3000/api/radio/status');
+            const response = await fetch('https://radiocasa13.duckdns.org/api/radio/status');
             const data = await response.json();
             console.log('🧪 Manual test result:', data);
             alert('✅ API funcionando! Verifique o console.');
