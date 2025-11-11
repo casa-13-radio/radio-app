@@ -38,4 +38,25 @@
       </div>
     </div>
   </div>
+
+    <div class="mt-8 bg-gray-100 p-4 rounded-lg">
+    <h3 class="font-semibold mb-2">🔧 Debug Tools</h3>
+    <button 
+        on:click={async () => {
+        console.log('🧪 Testing API manually...');
+        try {
+            const response = await fetch('http://167.126.24.4:3000/api/radio/status');
+            const data = await response.json();
+            console.log('🧪 Manual test result:', data);
+            alert('✅ API funcionando! Verifique o console.');
+        } catch (error) {
+            console.error('🧪 Manual test failed:', error);
+            alert('❌ API falhou! Verifique o console.');
+        }
+        }}
+        class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded text-sm"
+    >
+        Testar API Manualmente
+    </button>
+    </div>
 </main>

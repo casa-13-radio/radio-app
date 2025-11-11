@@ -5,11 +5,22 @@
   const radioManager = new RadioStatusManager();
 
   onMount(() => {
+    console.log('🎵 RadioStatus component mounted - loading status...');
     radioManager.loadStatus();
   });
 
   async function handleRetry() {
+    console.log('🔄 Retrying API connection...');
     await radioManager.loadStatus();
+  }
+
+  // Log quando o status mudar
+  $: if (radioManager.status) {
+    console.log('✅ API Response:', radioManager.status);
+  }
+
+  $: if (radioManager.error) {
+    console.error('❌ API Error:', radioManager.error);
   }
 </script>
 
