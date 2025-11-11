@@ -12,7 +12,7 @@
  * @property {NowPlaying} current_song
  */
 
-const API_BASE = import.meta.env.VITE_API_URL || 'https://radiocasa13.duckdns.org';
+const API_BASE = 'https://api.radiocasa13.duckdns.org';
 
 /**
  * API client para integração com o backend da rádio
@@ -23,7 +23,7 @@ export const radioAPI = {
    * @returns {Promise<RadioStatus>}
    */
   async getStatus() {
-    const response = await fetch(`${API_BASE}/api/radio/status`);
+    const response = await fetch(`${API_BASE}/radio/status`);
     if (!response.ok) throw new Error('Failed to fetch radio status');
     return response.json();
   },
