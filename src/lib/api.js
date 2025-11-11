@@ -12,7 +12,7 @@
  * @property {NowPlaying} current_song
  */
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://167.126.24.4:3000';
+const API_BASE = import.meta.env.VITE_API_URL || 'https://167.126.24.4';
 
 /**
  * API client para integração com o backend da rádio
