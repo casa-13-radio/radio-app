@@ -1,3 +1,5 @@
+import { PUBLIC_API_URL } from '$env/static/public';
+
 /**
  * @typedef {Object} NowPlaying
  * @property {string} title
@@ -12,7 +14,7 @@
  * @property {NowPlaying} current_song
  */
 
-const API_BASE = 'https://api.radiocasa13.duckdns.org';
+const API_BASE = PUBLIC_API_URL; 
 
 /**
  * API client para integração com o backend da rádio
@@ -23,7 +25,8 @@ export const radioAPI = {
    * @returns {Promise<RadioStatus>}
    */
   async getStatus() {
-    const response = await fetch(`${API_BASE}/radio/status`);
+    // MUDANÇA 2: Adicionado prefixo /api
+    const response = await fetch(`${API_BASE}/api/radio/status`);
     if (!response.ok) throw new Error('Failed to fetch radio status');
     return response.json();
   },
@@ -33,6 +36,7 @@ export const radioAPI = {
    * @returns {Promise<Object>}
    */
   async getHealth() {
+    // Esta já estava correta
     const response = await fetch(`${API_BASE}/api/radio/health`);
     return response.json();
   },
@@ -42,7 +46,8 @@ export const radioAPI = {
    * @returns {Promise<Object>}
    */
   async testConnection() {
-    const response = await fetch(`${API_BASE}/`);
+    // MUDANÇA 3: Adicionado prefixo /api
+    const response = await fetch(`${API_BASE}/api/`);
     return response.json();
   }
 };
