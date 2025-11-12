@@ -1,4 +1,4 @@
-import { PUBLIC_API_URL } from '$env/static/public';
+import { env } from '$env/dynamic/public';
 
 /**
  * @typedef {Object} NowPlaying
@@ -14,7 +14,7 @@ import { PUBLIC_API_URL } from '$env/static/public';
  * @property {NowPlaying} current_song
  */
 
-const API_BASE = PUBLIC_API_URL; 
+const API_BASE = env.PUBLIC_API_URL || '';
 
 /**
  * API client para integração com o backend da rádio
