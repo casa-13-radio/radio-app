@@ -25,7 +25,6 @@ export const radioAPI = {
    * @returns {Promise<RadioStatus>}
    */
   async getStatus() {
-    // MUDANÇA 2: Adicionado prefixo /api
     const response = await fetch(`${API_BASE}/api/radio/status`);
     if (!response.ok) throw new Error('Failed to fetch radio status');
     return response.json();
@@ -46,7 +45,6 @@ export const radioAPI = {
    * @returns {Promise<Object>}
    */
   async testConnection() {
-    // MUDANÇA 3: Adicionado prefixo /api
     const response = await fetch(`${API_BASE}/api/`);
     return response.json();
   }
